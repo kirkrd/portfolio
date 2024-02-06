@@ -89,6 +89,12 @@ export default function Index() {
             <li> React </li>
             <li> CSS </li>
           </ul>
+          <h3> Testing frameworks </h3>
+          <ul>
+            <li> Vitest </li>
+            <li> Playwright </li>
+            <li> Cypress </li>
+          </ul>
           <h3> Cloud experience </h3>
           <ul>
             <li> AWS </li>
