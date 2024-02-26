@@ -1,6 +1,9 @@
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import type { MetaFunction } from "@remix-run/node";
 import { CalendarDays } from "lucide-react";
+import { useState } from "react";
 import Header from "~/components/header";
+import ListHeader from "~/components/list-header";
 import SectionHeader from "~/components/section-header";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
@@ -9,6 +12,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "~/components/ui/hover-card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,6 +22,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [showEmploylerCard, setShowEmployerCard] = useState(false);
+  const [showEmploylerCardHover, setShowEmployerCardHover] = useState(false);
   return (
     <div className="p-5">
       <Header />
@@ -31,9 +37,26 @@ export default function Index() {
           </Avatar>
           <p>
             Software Engineer at
-            <HoverCard>
-              <HoverCardTrigger asChild>
-                <Button className="px-1.5" variant="link">
+            <HoverCard
+              openDelay={4000}
+              open={
+                showEmploylerCard ? showEmploylerCard : showEmploylerCardHover
+              }
+            >
+              <HoverCardTrigger
+                asChild
+                onClick={() => setShowEmployerCard((prev) => !prev)}
+              >
+                <Button
+                  onMouseEnter={() =>
+                    !showEmploylerCard && setShowEmployerCardHover(true)
+                  }
+                  onMouseLeave={() =>
+                    !showEmploylerCard && setShowEmployerCardHover(false)
+                  }
+                  className="px-1.5"
+                  variant="link"
+                >
                   Polestar
                 </Button>
               </HoverCardTrigger>
@@ -78,45 +101,88 @@ export default function Index() {
         </section>
         <section className="flex flex-col gap-2">
           <SectionHeader> Technical skills </SectionHeader>
-          <h3> Coding, frameworks and commonly used tools </h3>
           <em>
-            {" "}
-            The following are the tools i've used recently and are most
-            up-to-date knowledge wise.
+            A summary of my different skills and interests within the field.
           </em>
-          <ul>
-            <li> Typescript / Javascript </li>
-            <li> React </li>
-            <li> CSS </li>
-          </ul>
-          <h3> Testing frameworks </h3>
-          <ul>
-            <li> Vitest </li>
-            <li> Playwright </li>
-            <li> Cypress </li>
-          </ul>
-          <h3> Cloud experience </h3>
-          <ul>
-            <li> AWS </li>
-            <li> Azure </li>
-            <li> Cloudflare </li>
-          </ul>
-          <h3> CI / CD</h3>
-          <ul>
-            <li> Github workflows </li>
-            <li> Jenkins </li>
-            <li> Bitbucket pipelines </li>
-          </ul>
-          <h3> Site reliability engineering </h3>
-          <ul>
-            <li> Datadog </li>
-            <li> Kibana </li>
-          </ul>
-          <h3> IDE and workspace </h3>
-          <ul>
-            <li> Nvim / Vim </li>
-            <li> MacOS </li>
-          </ul>
+
+          <Tabs defaultValue="coreSkills" className="w-[400px]">
+            <TabsList>
+              <TabsTrigger value="coreSkills">Core skills</TabsTrigger>
+              <TabsTrigger value="familiarTools">Familiar tools</TabsTrigger>
+              <TabsTrigger value="learningInterests">
+                Learning interests
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="coreSkills" className="pl-1">
+              <ListHeader> Languages </ListHeader>
+              <ul className="mt-1">
+                <li> Typescript / Javascript </li>
+                <li> HTML / CSS </li>
+              </ul>
+              <ListHeader> Frameworks</ListHeader>
+              <ul className="mt-1">
+                <li> React</li>
+                <li> Vite </li>
+                <li> Remix</li>
+                <li>
+                  CSS in JS
+                  <em className="text-sm">(emotion, styled components..)</em>
+                </li>
+              </ul>
+              <ListHeader> Testing</ListHeader>
+              <ul className="mt-1">
+                <li>
+                  E2E <em className="text-sm">(Playwright, Cypress..)</em>
+                </li>
+                <li>
+                  Unit tests <em className="text-sm">(Vitest, Jest..)</em>
+                </li>
+              </ul>
+            </TabsContent>
+            <TabsContent value="familiarTools" className="pl-1">
+              <ListHeader> Languages </ListHeader>
+              <ul className="mt-1">
+                <li> C# </li>
+                <li> Python </li>
+                <li> Bash</li>
+              </ul>
+              <ListHeader> CI/CD</ListHeader>
+              <ul className="mt-1">
+                <li> Github </li>
+                <li> Jenkins</li>
+              </ul>
+              <ListHeader> IDE </ListHeader>
+              <ul className="mt-1">
+                <li> Neovim </li>
+                <li> VSCode</li>
+              </ul>
+            </TabsContent>
+            <TabsContent value="learningInterests" className="pl-1">
+              <ListHeader> Languages </ListHeader>
+              <ul className="mt-1">
+                <li> Rust</li>
+                <li> C++</li>
+              </ul>
+            </TabsContent>
+          </Tabs>
+        </section>
+        <section className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <a
+              href="https://www.linkedin.com/in/kristoffer-kirkerud/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LinkedInLogoIcon height={40} width={40} />
+            </a>
+            <a
+              href="https://github.com/kirkrd"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GitHubLogoIcon height={40} width={40} />
+            </a>
+          </div>
         </section>
       </main>
     </div>
