@@ -1,0 +1,23 @@
+name: Install
+description: Install pnpm, node and dependencies
+
+runs:
+  using: composite
+  steps:
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@polestar'
+
+    - name: Install PNPM
+      uses: pnpm/action-setup@v3
+      with:
+        run_install: false
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
+      env:
+        NODE_AUTH_TOKEN: ${{ github.token }}

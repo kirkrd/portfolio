@@ -95,7 +95,7 @@ export default function Index() {
             A summary of my different skills and interests within the field.
           </em>
 
-          <Tabs defaultValue="coreSkills" className="w-[400px] min-h-[342px]">
+          <Tabs defaultValue="coreSkills" className="w-[400px] min-h-[362px]">
             <TabsList>
               <TabsTrigger value="coreSkills">Core skills</TabsTrigger>
               <TabsTrigger value="familiarTools">Familiar tools</TabsTrigger>
@@ -105,12 +105,12 @@ export default function Index() {
             </TabsList>
             <TabsContent value="coreSkills" className="pl-1">
               <ListHeader> Languages </ListHeader>
-              <ul className="mt-1">
+              <ul className="mt-1 mb-2">
                 <li> Typescript / Javascript </li>
                 <li> HTML / CSS </li>
               </ul>
               <ListHeader> Frameworks</ListHeader>
-              <ul className="mt-1">
+              <ul className="mt-1 mb-2">
                 <li> React</li>
                 <li> Vite </li>
                 <li> Remix</li>
@@ -120,7 +120,7 @@ export default function Index() {
                 </li>
               </ul>
               <ListHeader> Testing</ListHeader>
-              <ul className="mt-1">
+              <ul className="mt-1 mb-2">
                 <li>
                   E2E <em className="text-sm">(Playwright, Cypress..)</em>
                 </li>
@@ -131,25 +131,25 @@ export default function Index() {
             </TabsContent>
             <TabsContent value="familiarTools" className="pl-1">
               <ListHeader> Languages </ListHeader>
-              <ul className="mt-1">
+              <ul className="mt-1 mb-2">
                 <li> C# </li>
                 <li> Python </li>
                 <li> Bash</li>
               </ul>
               <ListHeader> CI/CD</ListHeader>
-              <ul className="mt-1">
+              <ul className="mt-1 mb-2">
                 <li> Github </li>
                 <li> Jenkins</li>
               </ul>
               <ListHeader> IDE </ListHeader>
-              <ul className="mt-1">
+              <ul className="mt-1 mb-2">
                 <li> Neovim </li>
                 <li> VSCode</li>
               </ul>
             </TabsContent>
             <TabsContent value="learningInterests" className="pl-1">
               <ListHeader> Languages </ListHeader>
-              <ul className="mt-1">
+              <ul className="mt-1 mb-2">
                 <li> Rust</li>
                 <li> C++</li>
               </ul>
