@@ -13,6 +13,7 @@ import {
   HoverCardTrigger,
 } from "~/components/ui/hover-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+import { useIsMobile } from "~/lib/hooks/useIsMobile";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,8 +23,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const isMobile = useIsMobile();
   const [showEmploylerCard, setShowEmployerCard] = useState(false);
-  const [showEmploylerCardHover, setShowEmployerCardHover] = useState(false);
   return (
     <div className="p-5">
       <Header />
@@ -37,26 +38,15 @@ export default function Index() {
           </Avatar>
           <p>
             Software Engineer at
-            <HoverCard
-              openDelay={4000}
-              open={
-                showEmploylerCard ? showEmploylerCard : showEmploylerCardHover
-              }
-            >
+            <HoverCard openDelay={4000} open={showEmploylerCard}>
               <HoverCardTrigger
                 asChild
-                onClick={() => setShowEmployerCard((prev) => !prev)}
+                onFocus={() => setShowEmployerCard((prev) => !prev)}
+                onBlur={() => setShowEmployerCard(false)}
+                onMouseOver={() => !isMobile && setShowEmployerCard(true)}
+                onMouseOut={() => !isMobile && setShowEmployerCard(false)}
               >
-                <Button
-                  onMouseEnter={() =>
-                    !showEmploylerCard && setShowEmployerCardHover(true)
-                  }
-                  onMouseLeave={() =>
-                    !showEmploylerCard && setShowEmployerCardHover(false)
-                  }
-                  className="px-1.5"
-                  variant="link"
-                >
+                <Button className="px-1.5" variant="link">
                   Polestar
                 </Button>
               </HoverCardTrigger>
@@ -105,7 +95,7 @@ export default function Index() {
             A summary of my different skills and interests within the field.
           </em>
 
-          <Tabs defaultValue="coreSkills" className="w-[400px]">
+          <Tabs defaultValue="coreSkills" className="w-[400px] min-h-[342px]">
             <TabsList>
               <TabsTrigger value="coreSkills">Core skills</TabsTrigger>
               <TabsTrigger value="familiarTools">Familiar tools</TabsTrigger>
