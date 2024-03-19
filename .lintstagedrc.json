@@ -1,3 +1,4 @@
 {
-  "*.{js,ts}": ["pn lint --fix", "vitest related --run"]
+  "*.{ts,tsx}": ["pnpm lint --fix", "vitest related --run"],
+  "*.json": ["pnpm lint --fix"]
 }

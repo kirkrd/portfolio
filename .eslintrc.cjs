@@ -70,6 +70,10 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
       ],
+      rules: {
+        "react/prop-types": "off",
+        "react/no-unescaped-entities": "off",
+      },
     },
 
     // Node
