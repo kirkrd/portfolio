@@ -51,7 +51,7 @@ export function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="p-5">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
