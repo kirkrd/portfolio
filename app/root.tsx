@@ -46,7 +46,7 @@ export function App() {
     <html lang="en" className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1" />
         <meta property="og:title" content="Kristoffer Kirkerud - Portfolio/Blog" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.kirkerud.dev" />
