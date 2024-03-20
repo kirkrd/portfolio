@@ -47,6 +47,15 @@ export function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Kristoffer Kirkerud - Portfolio/Blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.kirkerud.dev" />
+        <meta
+          property="og:description"
+          content="Portfolio and blog of a software engineer."
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Kristoffer Kirkerud" />
         <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
         <Meta />
         <Links />
