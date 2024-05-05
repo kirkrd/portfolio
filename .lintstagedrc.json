@@ -1,4 +1,8 @@
 {
-  "*.{ts,tsx}": ["pnpm lint --fix", "vitest related --run"],
-  "*.json": ["pnpm lint --fix"]
+  "*.{ts,tsx}": [
+    "pnpm lint --fix",
+    "tsc-files --noEmit",
+    "vitest related --run"
+  ],
+  "*": "prettier --write"
 }
