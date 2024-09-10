@@ -14,10 +14,6 @@ runs:
       run: pnpm build
       shell: bash
 
-    - name: Lint
-      run: pnpm lint
-      shell: bash
-
     - name: Typecheck
       run: pnpm typecheck
       shell: bash

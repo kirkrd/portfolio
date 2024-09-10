@@ -1,12 +1,12 @@
-import { ModeToggle } from "./mode-toggle";
+import {ModeToggle} from './mode-toggle.js'
 
-const Header = () => {
-  return (
-    <div className="flex items-strech">
-      <h1 className="flex-auto"> kirkerud.dev </h1>
-      <ModeToggle />
-    </div>
-  );
-};
+function Header() {
+	return (
+		<div className="flex items-strech">
+			<h1 className="flex-auto"> kirkerud.dev </h1>
+			<ModeToggle />
+		</div>
+	)
+}
 
-export default Header;
+export default Header

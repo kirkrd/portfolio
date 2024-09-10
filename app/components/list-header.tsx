@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import {type ReactNode} from 'react'
 
-const ListHeader = ({ children }: { children: ReactNode }) => (
-  <h3 className="text-xl font-bold" >{children}</h3>
-);
+function ListHeader({children}: {readonly children: ReactNode}) {
+	return <h3 className="text-xl font-bold">{children}</h3>
+}
 
-export default ListHeader;
+export default ListHeader
