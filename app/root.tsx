@@ -1,76 +1,76 @@
-import {cssBundleHref} from '@remix-run/css-bundle'
-import type {LinksFunction, LoaderFunctionArgs} from '@remix-run/node'
+import { cssBundleHref } from '@remix-run/css-bundle'
+import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
 import {
-	Links,
-	LiveReload,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-	useLoaderData,
+    Links,
+    LiveReload,
+    Meta,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
+    useLoaderData,
 } from '@remix-run/react'
-import {PreventFlashOnWrongTheme, ThemeProvider, useTheme} from 'remix-themes'
+import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes'
 import clsx from 'clsx'
-import {themeSessionResolver} from './sessions.server'
+import { themeSessionResolver } from './sessions.server'
 import styles from './tailwind.css'
 
 export const links: LinksFunction = () => [
-	{rel: 'stylesheet', href: styles},
-	...(cssBundleHref ? [{rel: 'stylesheet', href: cssBundleHref}] : []),
+    { rel: 'stylesheet', href: styles },
+    ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ]
 
-export async function loader({request}: LoaderFunctionArgs) {
-	const {getTheme} = await themeSessionResolver(request)
-	return {
-		theme: getTheme(),
-	}
+export async function loader({ request }: LoaderFunctionArgs) {
+    const { getTheme } = await themeSessionResolver(request)
+    return {
+        theme: getTheme(),
+    }
 }
 
 export default function AppWithProviders() {
-	const data = useLoaderData<typeof loader>()
-	return (
-		<ThemeProvider
-			specifiedTheme={data.theme}
-			themeAction="/action/set-theme"
-		>
-			<App />
-		</ThemeProvider>
-	)
+    const data = useLoaderData<typeof loader>()
+    return (
+        <ThemeProvider
+            specifiedTheme={data.theme}
+            themeAction="/action/set-theme"
+        >
+            <App />
+        </ThemeProvider>
+    )
 }
 
 export function App() {
-	const data = useLoaderData<typeof loader>()
-	const [theme] = useTheme()
-	return (
-		<html lang="en" className={clsx(theme)}>
-			<head>
-				<meta charSet="utf-8" />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=0.9"
-				/>
-				<meta
-					property="og:title"
-					content="Kristoffer Kirkerud - Portfolio/Blog"
-				/>
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://www.kirkerud.dev" />
-				<meta
-					property="og:description"
-					content="Portfolio and blog of a software engineer."
-				/>
-				<meta name="robots" content="index, follow" />
-				<meta name="author" content="Kristoffer Kirkerud" />
-				<PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
-				<Meta />
-				<Links />
-			</head>
-			<body>
-				<Outlet />
-				<ScrollRestoration />
-				<Scripts />
-				<LiveReload />
-			</body>
-		</html>
-	)
+    const data = useLoaderData<typeof loader>()
+    const [theme] = useTheme()
+    return (
+        <html lang="en" className={clsx(theme)}>
+            <head>
+                <meta charSet="utf-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=0.9"
+                />
+                <meta
+                    property="og:title"
+                    content="Kristoffer Kirkerud - Portfolio/Blog"
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.kirkerud.dev" />
+                <meta
+                    property="og:description"
+                    content="Portfolio and blog of a software engineer."
+                />
+                <meta name="robots" content="index, follow" />
+                <meta name="author" content="Kristoffer Kirkerud" />
+                <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
+                <Meta />
+                <Links />
+            </head>
+            <body>
+                <Outlet />
+                <ScrollRestoration />
+                <Scripts />
+                <LiveReload />
+            </body>
+        </html>
+    )
 }
