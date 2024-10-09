@@ -1,4 +1,4 @@
-name: Dependabot auto-merge
+name: Pull request with automerge dependabot
 on: pull_request
 
 permissions:
@@ -6,8 +6,16 @@ permissions:
     pull-requests: write
 
 jobs:
+    quality-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - uses: ./.github/actions/build-test
+              name: Build & Test
     dependabot:
         runs-on: ubuntu-latest
+        needs: quality-check
         if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'kirkrd/portfolio'
         steps:
             - name: Dependabot metadata
@@ -16,7 +24,6 @@ jobs:
               with:
                   github-token: '${{ secrets.GITHUB_TOKEN }}'
             - name: Enable auto-rebase for Dependabot PRs
-              if: steps.metadata.outputs.update-type == 'version-update:semver-patch'
               run: gh pr rebase --auto  "$PR_URL"
               env:
                   PR_URL: ${{github.event.pull_request.html_url}}
