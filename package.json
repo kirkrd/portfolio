@@ -6,7 +6,7 @@
     "scripts": {
         "build": "remix build",
         "dev": "remix dev --manual",
-        "lint": "eslint",
+        "lint": "biome lint",
         "start": "remix-serve ./build/index.js",
         "test": "vitest run --silent",
         "typecheck": "tsc",
@@ -36,28 +36,22 @@
         "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
-        "@eslint/compat": "^1.2.5",
-        "@eslint/eslintrc": "^3.2.0",
-        "@remix-run/dev": "^2.15.2",
-        "@remix-run/testing": "^2.15.2",
+        "@biomejs/biome": "1.9.4",
+        "@remix-run/dev": "^2.16.0",
+        "@remix-run/testing": "^2.16.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.2.0",
         "@types/react": "^18.3.12",
         "@types/react-dom": "^18.3.1",
-        "autoprefixer": "^10.4.20",
-        "eslint": "^9.18.0",
-        "eslint-config-xo": "^0.46.0",
-        "eslint-config-xo-react": "^0.27.0",
-        "eslint-plugin-react": "^7.37.4",
-        "eslint-plugin-react-hooks": "5.1.0",
+        "autoprefixer": "^10.4.21",
         "husky": "^9.1.7",
         "jsdom": "^26.0.0",
         "lint-staged": "^15.4.1",
         "tailwindcss": "^3.4.17",
         "tsc-files": "^1.1.4",
-        "typescript": "^5.7.3",
         "typescript-eslint": "^8.20.0",
-        "vitest": "^3.0.5"
+        "typescript": "^5.8.2",
+        "vitest": "^3.0.8"
     },
     "engines": {
         "node": ">=20.0.0"
