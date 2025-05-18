@@ -6,12 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 installGlobals();
 
 export default defineConfig({
-  plugins: [
-    tsconfigPaths(),
-    remix({
-      ignoredRouteFiles: ["**/*.css"],
-    }),
-  ],
+  plugins: [tsconfigPaths(), remix()],
   server: {
     port: 3000,
   },

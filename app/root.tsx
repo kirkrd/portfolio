@@ -15,9 +15,9 @@ import {
   useTheme,
 } from "remix-themes";
 import { themeSessionResolver } from "./sessions.server";
+import "./tailwind.css";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: "/app/tailwind.css" },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
