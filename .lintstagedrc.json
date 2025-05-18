@@ -4,5 +4,5 @@
     "tsc-files --noEmit",
     "vitest related --run"
   ],
-  "*": "prettier --write"
+  "*": "pnpm biome check --write"
 }

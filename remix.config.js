@@ -1,6 +1,6 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 const config = {
-  ignoredRouteFiles: ['**/.*'],
+  ignoredRouteFiles: ["**/.*"],
   tailwind: true,
   postcss: true,
   // AppDirectory: "app",

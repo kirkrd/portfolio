@@ -1,11 +1,11 @@
 {
-    "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-    "formatter": {
-        "lineWidth": 80,
-        "indentStyle": "space",
-        "indentWidth": 2
-    },
-    "files": {
-        "ignore": ["node_modules", "dist", "build"]
-    }
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "formatter": {
+    "lineWidth": 80,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "files": {
+    "ignore": ["node_modules", "dist", "build"]
+  }
 }
