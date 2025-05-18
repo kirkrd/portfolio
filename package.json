@@ -40,6 +40,7 @@
     "@biomejs/biome": "1.9.4",
     "@remix-run/dev": "^2.16.6",
     "@remix-run/testing": "^2.16.6",
+    "@tailwindcss/postcss": "^4.1.7",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/react": "19.1.4",
