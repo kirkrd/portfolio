@@ -40,6 +40,7 @@ export default function AppWithProviders() {
 export function App() {
   const data = useLoaderData<typeof loader>();
   const [theme] = useTheme();
+  console.log("theme", clsx(theme));
   return (
     <html lang="en" className={clsx(theme)}>
       <head>

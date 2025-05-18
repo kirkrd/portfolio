@@ -22,6 +22,7 @@ export function ModeToggle() {
       <DropdownMenuContent>
         <DropdownMenuItem
           onClick={() => {
+            console.log("Light mode");
             setTheme(Theme.LIGHT);
           }}
         >
