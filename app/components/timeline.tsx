@@ -46,7 +46,7 @@ function Timeline({ jobs }: Properties) {
   return (
     <ol className="relative border-s border-gray-200 dark:border-gray-700">
       {jobs.map((job) => (
-        <Job key={job.jobTitle} {...job} />
+        <Job key={job.jobTitle + job.company + job.jobDescription} {...job} />
       ))}
     </ol>
   );
