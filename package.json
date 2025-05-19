@@ -48,7 +48,7 @@
     "autoprefixer": "^10.4.21",
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
-    "lint-staged": "^15.5.1",
+    "lint-staged": "^16.0.0",
     "tailwindcss": "^4.1.7",
     "tsc-files": "^1.1.4",
     "typescript": "^5.8.3",
