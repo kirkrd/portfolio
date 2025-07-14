@@ -37,7 +37,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.1.1",
     "@remix-run/dev": "^2.16.7",
     "@remix-run/testing": "^2.16.7",
     "@tailwindcss/vite": "^4.1.11",
