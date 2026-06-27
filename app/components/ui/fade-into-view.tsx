@@ -13,7 +13,7 @@ interface Props {
 
 export function FadeInOnView({ children, delay = 0.1, className }: Props) {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   useEffect(() => {
     if (inView) {
