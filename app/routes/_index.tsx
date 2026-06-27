@@ -3,8 +3,8 @@ import type { MetaFunction } from "@remix-run/node";
 import { CalendarDays } from "lucide-react";
 import { useState } from "react";
 import Header from "~/components/header";
-import SectionHeader from "~/components/section-header";
 import { Section } from "~/components/section/section";
+import SectionHeader from "~/components/section-header";
 import Timeline from "~/components/timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
@@ -20,8 +20,12 @@ import { jobItems } from "~/lib/constants";
 import { useIsMobile } from "~/lib/hooks/use-is-mobile";
 
 export const meta: MetaFunction = () => [
-  { title: "Kristoffer Kirkerud" },
-  { name: "description", content: "Software Engineer at Polestar" },
+  { title: "Kristoffer Kirkerud | Kirkerud Development" },
+  {
+    name: "description",
+    content:
+      "Portfolio of Kirkerud Development — Senior Software Engineer / Solution Architect at Consid AB, building SaaS applications on the side.",
+  },
 ];
 
 export default function Index() {
@@ -34,8 +38,8 @@ export default function Index() {
         <Avatar>
           <AvatarImage src="./avatar.jpg" alt="@kirkrd" />
         </Avatar>
-        <p>
-          Software Engineer at
+        <div>
+          Senior Software Engineer / Solution Architect at{" "}
           <HoverCard openDelay={4000} open={showEmploylerCard}>
             <HoverCardTrigger
               asChild
@@ -49,46 +53,57 @@ export default function Index() {
               onMouseOut={() => !isMobile && setShowEmployerCard(false)}
             >
               <Button className="px-1.5" variant="link">
-                Polestar
+                Consid AB
               </Button>
             </HoverCardTrigger>
             <HoverCardContent className="w-80 max-w-md">
               <div className="flex justify-between space-x-2">
                 <Avatar>
-                  <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSibag88oVKuUcLjKuLReQCd-3e_2lHR1EjU1xCWwYeCA&s" />
-                  <AvatarFallback>VC</AvatarFallback>
+                  <AvatarImage src="https://cms.consid.net/wp-content/uploads/2020/02/consid.se_logo-2.svg" />
+                  <AvatarFallback>CA</AvatarFallback>
                 </Avatar>
                 <div className="space-y-1">
-                  <h4 className="text-sm font-semibold">
-                    Polestar Performance AB
-                  </h4>
+                  <h4 className="text-sm font-semibold">Consid AB</h4>
                   <p className="text-sm">
-                    Our commitment to design and innovation propels us towards a
-                    smarter and more sustainable future.
+                    One of the Nordic region&apos;s leading tech consultancies,
+                    helping organisations build sustainable digital solutions
+                    through system development, design, and business insight.
                   </p>
                   <div className="flex items-center pt-2">
                     <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
                     <span className="text-xs text-muted-foreground">
-                      Joined September 2023
+                      Joined June 2026
                     </span>
                   </div>
                 </div>
               </div>
             </HoverCardContent>
           </HoverCard>
-        </p>
+        </div>
       </Section>
       <Section>
         <SectionHeader> About </SectionHeader>
         <p>
-          I've been a developer for many years, i am an enthusiast about tech,
-          passionate about creating amazing user experiences and bringing ideas
-          to life.
+          I&apos;ve been a developer for many years — an enthusiast about tech,
+          passionate about creating great user experiences and bringing ideas to
+          life. Today I work as Senior Software Engineer / Solution Architect at{" "}
+          <a
+            href="https://www.consid.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="underline underline-offset-4"
+          >
+            Consid AB
+          </a>
+          , one of the Nordic region&apos;s leading tech consultancies, where I
+          help clients design and deliver digital solutions that combine
+          technical depth with real business value.
         </p>
         <p>
-          I consider myself fullstack in the way i am open to every tech thrown
-          at me, I am not afraid to jump and learn whatever tool solves the
-          problem at hand.
+          I consider myself fullstack in the way I am open to every tech thrown
+          at me — not afraid to jump in and learn whatever tool solves the
+          problem at hand, whether that means shaping architecture, leading
+          delivery, or writing the code myself.
         </p>
       </Section>
 
@@ -138,6 +153,15 @@ export default function Index() {
                 <Pill delay={0.5} type={PillType.Tools}>
                   DynamoDB
                 </Pill>
+                <Pill delay={1.0} type={PillType.Tools}>
+                  Azure DevOps
+                </Pill>
+                <Pill delay={1.5} type={PillType.Tools}>
+                  Splunk
+                </Pill>
+                <Pill delay={2.0} type={PillType.Tools}>
+                  Datadog
+                </Pill>
               </div>
             </FadeInOnView>
           </div>
@@ -159,6 +183,12 @@ export default function Index() {
                 </Pill>
                 <Pill delay={2.0} type={PillType.Infrastructure}>
                   Docker
+                </Pill>
+                <Pill delay={2.5} type={PillType.Infrastructure}>
+                  OpenShift
+                </Pill>
+                <Pill delay={3.0} type={PillType.Infrastructure}>
+                  ArgoCD
                 </Pill>
               </div>
             </FadeInOnView>
@@ -190,6 +220,19 @@ export default function Index() {
         <SectionHeader>Career</SectionHeader>
         <Timeline jobs={jobItems} />
       </Section>
+
+      <Section>
+        <SectionHeader>Kirkerud Development</SectionHeader>
+        <p>
+          Kirkerud Development is a company I started to build SaaS applications
+          in my spare time — turning ideas into products outside of my
+          day-to-day consulting work.
+        </p>
+        <p className="text-muted-foreground">
+          Stay tuned for updates on my personal projects.
+        </p>
+      </Section>
+
       <Section>
         <div className="flex gap-2">
           <a

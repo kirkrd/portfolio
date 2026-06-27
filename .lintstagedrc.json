@@ -4,5 +4,5 @@
     "tsc-files --noEmit",
     "vitest related --run"
   ],
-  "*": "pnpm biome check --write"
+  "*": "pnpm biome check --write --no-errors-on-unmatched"
 }

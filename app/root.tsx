@@ -48,17 +48,17 @@ export function App() {
         <meta name="viewport" content="width=device-width, initial-scale=0.9" />
         <meta
           property="og:title"
-          content="Kristoffer Kirkerud - Full-Stack Software Engineer in Gothenburg, Sweden"
+          content="Kristoffer Kirkerud | Kirkerud Development"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.kirkerud.dev" />
         <meta
           property="og:description"
-          content="Portfolio and blog of Kristoffer Kirkerud, a full-stack software engineer specializing in JavaScript, TypeScript, React, Node.js, .NET, and web development based in Gothenburg, Sweden."
+          content="Portfolio of Kirkerud Development — Senior Software Engineer / Solution Architect building SaaS applications on the side."
         />
         <meta
           name="description"
-          content="Kristoffer Kirkerud is a full-stack software engineer in Gothenburg, Sweden, specializing in JavaScript, TypeScript, React, Node.js, .NET, and web development. Explore his portfolio and blog."
+          content="Kirkerud Development is the personal brand of Kristoffer Kirkerud, a senior software engineer and solution architect in Gothenburg, Sweden, building SaaS applications in his spare time."
         />
         <meta
           name="keywords"

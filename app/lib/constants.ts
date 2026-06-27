@@ -2,6 +2,14 @@ import type { JobItem } from "~/components/timeline";
 
 export const jobItems: JobItem[] = [
   {
+    company: "Consid AB",
+    jobTitle: "Senior Software Engineer / Solution Architect",
+    jobDescription:
+      "Designing and delivering digital solutions for clients across the Nordics — from solution architecture and system design to hands-on development.",
+    monthYear: "June 2026",
+    consultantCompany: "Employed directly",
+  },
+  {
     company: "Polestar",
     jobTitle: "Software Engineer",
     jobDescription: "Developing the car configurator on polestar.com",

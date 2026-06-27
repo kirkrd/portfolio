@@ -12,6 +12,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "types": ["vitest/globals", "@remix-run/node", "vite/client"],
     "paths": {

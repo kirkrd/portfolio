@@ -6,6 +6,11 @@
     "indentWidth": 2
   },
   "files": {
-    "ignore": ["node_modules", "dist", "build"]
+    "includes": ["**", "!**/node_modules", "!**/dist", "!**/build"]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
   }
 }
