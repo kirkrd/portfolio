@@ -13,7 +13,7 @@ I use Vercel as a hosting provider, and the website is built with Remix and Reac
 
 ## TODOS
 
--   [ ] Add some cool scrolling animations with a parallax effect
+-   [x] Add some cool scrolling animations with a parallax effect
 
 ## Setup
 

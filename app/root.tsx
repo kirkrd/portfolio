@@ -9,6 +9,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import clsx from "clsx";
+import { MotionConfig } from "framer-motion";
 import {
   PreventFlashOnWrongTheme,
   ThemeProvider,
@@ -19,6 +20,16 @@ import "./tailwind.css";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap",
+  },
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -40,12 +51,11 @@ export default function AppWithProviders() {
 export function App() {
   const data = useLoaderData<typeof loader>();
   const [theme] = useTheme();
-  console.log("theme", clsx(theme));
   return (
     <html lang="en" className={clsx(theme)}>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:title"
           content="Kristoffer Kirkerud | Kirkerud Development"
@@ -70,8 +80,10 @@ export function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
+      <body className="grain">
+        <MotionConfig reducedMotion="user">
+          <Outlet />
+        </MotionConfig>
         <ScrollRestoration />
         <Scripts />
       </body>
