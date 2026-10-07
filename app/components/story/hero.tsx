@@ -165,7 +165,7 @@ export function Hero() {
           className="text-[clamp(3.25rem,16vw,12.5rem)] font-semibold leading-[0.86] tracking-[-0.065em]"
           style={{ y: nameY, opacity: fade }}
         >
-          <Letters text="Kristoffer" delay={0.15} className="block" />
+          <Letters text="Kristoffer" delay={0.15} className="block" />{" "}
           <span className="flex items-end gap-[0.14em]">
             <motion.span
               aria-hidden
@@ -176,7 +176,9 @@ export function Hero() {
             >
               <motion.img
                 src="/avatar.jpg"
-                alt=""
+                alt="Kristoffer Kirkerud"
+                width={800}
+                height={800}
                 className="absolute inset-0 h-full w-full object-cover object-[50%_35%] grayscale"
                 style={{ scale: portraitScale }}
               />

@@ -129,28 +129,25 @@ export function Stack() {
   });
 
   return (
-    <section ref={ref} id="toolkit" className="relative">
-      {/* Desktop: a pinned, scroll-driven exploded stack */}
-      <div className="hidden h-[260vh] md:block">
-        <div className="sticky top-0 mx-auto grid h-svh max-w-7xl grid-cols-[minmax(0,4fr)_minmax(0,8fr)] items-center gap-10 px-10">
-          <StackIntro />
-          <div className="relative h-[620px]" style={{ minWidth: DIAMOND_W }}>
-            {stackLayers.map((layer, index) => (
-              <ExplodedLayer
-                key={layer.name}
-                layer={layer}
-                index={index}
-                progress={progress}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile: the same layers as a simple list */}
-      <div className="px-5 py-24 md:hidden">
+    <section ref={ref} id="toolkit" className="relative md:h-[260vh]">
+      {/* One layout: pinned with the exploded stack on desktop, a plain
+          list on mobile. The intro (and its heading) renders only once. */}
+      <div className="mx-auto max-w-7xl px-5 py-24 md:sticky md:top-0 md:grid md:h-svh md:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] md:items-center md:gap-10 md:px-10 md:py-0">
         <StackIntro />
-        <ol className="mt-12 flex flex-col gap-8">
+        <div
+          className="relative hidden h-[620px] md:block"
+          style={{ minWidth: DIAMOND_W }}
+        >
+          {stackLayers.map((layer, index) => (
+            <ExplodedLayer
+              key={layer.name}
+              layer={layer}
+              index={index}
+              progress={progress}
+            />
+          ))}
+        </div>
+        <ol className="mt-12 flex flex-col gap-8 md:hidden">
           {stackLayers.map((layer, index) => (
             <motion.li
               key={layer.name}

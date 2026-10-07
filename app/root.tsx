@@ -18,8 +18,25 @@ import {
 import { themeSessionResolver } from "./sessions.server";
 import "./tailwind.css";
 
+// Page-level SEO (title, description, canonical, Open Graph, structured
+// data) lives in the route's `meta`, so each tag is defined exactly once.
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "icon", href: "/favicon.ico", sizes: "any" },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "32x32",
+    href: "/favicon-32x32.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "16x16",
+    href: "/favicon-16x16.png",
+  },
+  { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+  { rel: "manifest", href: "/site.webmanifest" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
@@ -56,26 +73,17 @@ export function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          property="og:title"
-          content="Kristoffer Kirkerud | Kirkerud Development"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.kirkerud.dev" />
-        <meta
-          property="og:description"
-          content="Portfolio of Kirkerud Development — Senior Software Engineer / Solution Architect building SaaS applications on the side."
-        />
-        <meta
-          name="description"
-          content="Kirkerud Development is the personal brand of Kristoffer Kirkerud, a senior software engineer and solution architect in Gothenburg, Sweden, building SaaS applications in his spare time."
-        />
-        <meta
-          name="keywords"
-          content="Full-Stack Software Engineer, Gothenburg, Sweden, JavaScript, TypeScript, React, Node.js, .NET, Web Developer, Backend, Frontend, Kristoffer Kirkerud, Portfolio, Blog, Software engineer, Programmer, Programmerare, Utvecklare, Webbutvecklare, Portfolio, Blogg, Ai"
-        />
-        <meta name="robots" content="index, follow" />
         <meta name="author" content="Kristoffer Kirkerud" />
+        <meta
+          name="theme-color"
+          content="#f6f5f1"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#0c0c0d"
+          media="(prefers-color-scheme: dark)"
+        />
         <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
         <Meta />
         <Links />

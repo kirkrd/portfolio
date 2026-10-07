@@ -173,8 +173,7 @@ export function AfterHours() {
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 1, ease: EASE }}
             >
-              Kirkerud
-              <br />
+              Kirkerud <br />
               <span className="font-serif font-normal italic text-white/70">
                 Development
               </span>

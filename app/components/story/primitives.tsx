@@ -49,24 +49,21 @@ export function MaskText({
       whileInView="show"
       viewport={{ once: true, margin: "0px 0px -15% 0px" }}
     >
-      <span className="sr-only">{text}</span>
-      <span aria-hidden>
-        {words.map((word, index) => (
-          // Words can repeat, so position is part of the identity here.
-          // biome-ignore lint/suspicious/noArrayIndexKey: static text
-          <Fragment key={`${word}-${index}`}>
-            <span className="-mb-[0.12em] inline-block overflow-hidden pb-[0.12em] align-bottom">
-              <motion.span
-                className="inline-block"
-                variants={maskChild}
-                custom={delay + index * stagger}
-              >
-                {word}
-              </motion.span>
-            </span>{" "}
-          </Fragment>
-        ))}
-      </span>
+      {words.map((word, index) => (
+        // Words can repeat, so position is part of the identity here.
+        // biome-ignore lint/suspicious/noArrayIndexKey: static text
+        <Fragment key={`${word}-${index}`}>
+          <span className="-mb-[0.12em] inline-block overflow-hidden pb-[0.12em] align-bottom">
+            <motion.span
+              className="inline-block"
+              variants={maskChild}
+              custom={delay + index * stagger}
+            >
+              {word}
+            </motion.span>
+          </span>{" "}
+        </Fragment>
+      ))}
     </motion.span>
   );
 }

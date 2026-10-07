@@ -139,6 +139,18 @@ export function Contact() {
         </ul>
 
         <Reveal>
+          <div className="grid gap-2 pt-12 text-sm text-muted-foreground md:grid-cols-2 md:gap-10">
+            <p>
+              Kristoffer Kirkerud — senior software engineer and solution
+              architect based in Gothenburg, Sweden.
+            </p>
+            <p lang="sv">
+              Systemutvecklare och lösningsarkitekt i Göteborg — fullstack,
+              molnet och AI-driven utveckling.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal>
           <footer className="flex flex-col gap-4 py-12 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground md:flex-row md:items-center md:justify-between">
             <p>
               © {new Date().getFullYear()} Kirkerud Development — kirkerud.dev
