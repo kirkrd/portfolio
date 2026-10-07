@@ -3,3 +3,11 @@ packages:
 
 allowBuilds:
   esbuild: true
+
+# Security pins for transitive dependencies (see `pnpm audit`).
+overrides:
+  # Patch release within the v6 line that Remix v2 requires.
+  react-router@6: 6.30.6
+  react-router-dom@6: 6.30.6
+  # Declared by cacache (via @remix-run/dev) but never imported by it.
+  tar@6: ^7.5.21
